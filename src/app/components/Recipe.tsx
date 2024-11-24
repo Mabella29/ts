@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { HeartIcon, ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/outline';
-
+import Image from 'next/image';
 
 interface CardProps {
   title: string;
@@ -14,10 +14,12 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ title, time, rating, diet, image }) => {
   return (
     <div className="w-full h-auto flex flex-col bg-white rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-200">
-      <img
-        src={image}
-        alt={title}
-        className="w-full h-40 object-cover"
+      <Image
+       src={image || '/images/default-image.jpg'}  
+       alt={title}
+       className="w-full h-40 object-cover" 
+       width={640}  
+       height={160} 
       />
       <div className="p-4 space-y-2">
         <span className="text-gray-400 text-sm">{diet}</span>

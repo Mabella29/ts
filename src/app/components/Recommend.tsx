@@ -44,14 +44,15 @@ const Card: React.FC<CardProps> = ({ title, time, rating, diet, image, profiles 
         </div>
         <div className="flex items-center space-x-2 mt-2">
           {profiles?.map((profile, index) => (
-            <img
-              key={index}
-              src={profile.image}
-              alt={profile.name}
-              className={`w-8 h-8 rounded-full border-2 border-white shadow-md ${
-                index > 0 ? "-ml-2" : ""
-              }`}
-            />
+           <Image
+           key={index}
+           src={profile.image || '/images/default-profile.jpg'} 
+           alt={profile.name}
+           className={`w-8 h-8 rounded-full border-2 border-white shadow-md ${index > 0 ? "-ml-2" : ""}`}
+           width={32}  
+           height={32} 
+         />
+         
           ))}
         </div>
       </div>
