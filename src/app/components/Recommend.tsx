@@ -47,7 +47,7 @@ const Card: React.FC<CardProps> = ({ title, time, rating, diet, image, profiles 
            <Image
            key={index}
            src={profile.image || '/images/default-profile.jpg'} 
-           alt={profile.name}
+           alt={profile.name || 'images description'}
            className={`w-8 h-8 rounded-full border-2 border-white shadow-md ${index > 0 ? "-ml-2" : ""}`}
            width={32}  
            height={32} 
