@@ -28,7 +28,7 @@ export default function Home() {
             Trending now
           </span>
           <h1 className="text-4xl md:text-5xl font-bold leading-snug">
-            Mimmy's Famous Salad <br className="hidden sm:block" /> with Cheese
+            "Mimmy's" Famous Salad <br className="hidden sm:block" /> with Cheese
           </h1>
           <p className="mt-4 text-lg text-gray-300">By John Mike</p>
         </div>
