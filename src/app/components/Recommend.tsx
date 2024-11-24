@@ -24,7 +24,7 @@ const Card: React.FC<CardProps> = ({ title, time, rating, diet, image, profiles 
       <div className="relative w-full h-40">
         <Image
           src={image}
-          alt={title}
+          alt={title || 'Image description'}
           layout="fill"
           objectFit="cover"
           className="rounded-t-lg"
