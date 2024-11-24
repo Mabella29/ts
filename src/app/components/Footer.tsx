@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
           Cookpal is a recipe website with a <br />
           wide variety of delicious recipes, <br />
           easy-to-use search function. Join <br />
-          our community and let's cook <br />
+          our community and "let's" cook <br />
           together!
         </p>
       </div>
