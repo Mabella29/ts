@@ -1,10 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer: React.FC = () => {
   return (
     <footer className="flex flex-col md:flex-row mt-6 gap-6 p-6 bg-gray-50">
       <div className="flex-1">
-        <img src="/Images/Cookpal 1.svg" alt="Cookpal logo" className="mb-4" />
+      <Image src="/Images/Cookpal 1.svg" alt="Cookpal logo" className="mb-4" width={100} height={50} />
         <p>
           Cookpal is a recipe website with a <br />
           wide variety of delicious recipes, <br />
@@ -50,7 +51,8 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="flex-1">
-        <img src="/Images/Cookpal 1.svg" alt="Cookpal logo" className="mb-4" />
+      <Image src="/Images/Cookpal 1.svg" alt="Cookpal logo" className="mb-4" width={100} height={50} />
+
         <p className="mb-4">
           Ut risus mattis interdum faucibus facilisi. <br />
           Facilisi purus accumsan aliquam.
