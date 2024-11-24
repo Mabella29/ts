@@ -16,7 +16,7 @@ const Card: React.FC<CardProps> = ({ title, time, rating, diet, image }) => {
     <div className="w-full h-auto flex flex-col bg-white rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-200">
       <Image
        src={image || '/images/default-image.jpg'}  
-       alt={title}
+       alt={title || 'Image description'}
        className="w-full h-40 object-cover" 
        width={640}  
        height={160} 
