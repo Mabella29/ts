@@ -1,59 +1,72 @@
 "use client";
 
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import Image from 'next/image';
-
+import Image from "next/image";
 
 export default function Navbar() {
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
-  const handleSearch = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!searchQuery.trim()) {
-      alert("Please enter a search term.");
-      return;
-    }
-   
-  };
-
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
   };
 
   return (
     <div className="py-2">
-      <nav className="flex flex-wrap justify-between items-center py-2 bg-gray-50">
-       
-        <div className="flex items-center space-x-8">
+      <nav className="flex justify-between items-center py-2 bg-gray-50 px-4">
+      
         <Image
-        src="/Images/Cookpal 1.svg" 
-        alt="Cookpal Logo"
-        width={100} 
-        height={50}
-        priority 
+          src="/Images/Cookpal 1.svg"
+          alt="Cookpal Logo"
+          width={100}
+          height={50}
+          priority
         />
-          <form onSubmit={handleSearch} className="flex items-center space-x-2">
-            <input
-              type="text"
-              placeholder="Search..."
-              value={searchQuery}
-              onChange={handleInputChange}
-              aria-label="Search"
-              className="px-3 py-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <button
-              type="submit"
-              className="px-4 py-1 bg-green-500 text-white rounded-md hover:bg-green-600"
-              aria-label="Submit search"
-            >
-              Search
-            </button>
-          </form>
-        </div>
+
+        
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="hidden sm:flex items-center space-x-2"
+        >
+          <input
+            type="text"
+            placeholder="Search..."
+            aria-label="Search"
+            className="px-3 py-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button
+            type="submit"
+            className="px-4 py-1 bg-green-500 text-white rounded-md hover:bg-green-600"
+            aria-label="Submit search"
+          >
+            Search
+          </button>
+        </form>
 
        
-        <div className="flex items-center space-x-12">
+        <button
+          onClick={toggleMenu}
+          className="sm:hidden text-gray-700 focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+
+       
+        <div className="hidden sm:flex items-center space-x-12">
           <Link href="/" className="text-green-500 font-bold">
             Home
           </Link>
@@ -71,6 +84,35 @@ export default function Navbar() {
             className="h-8 w-8 rounded-md hover:font-bold"
           />
         </div>
+
+       
+        {menuOpen && (
+          <div className="absolute top-16 left-0 w-full bg-gray-50 shadow-lg sm:hidden">
+            <div className="flex flex-col items-start space-y-2 px-4 py-4">
+              <Link
+                href="/"
+                className="text-green-500 font-bold"
+                onClick={() => setMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                href="/components/explore"
+                className="hover:text-green-500 hover:font-bold"
+                onClick={() => setMenuOpen(false)}
+              >
+                Explore
+              </Link>
+              <Link
+                href="/components/help"
+                className="hover:text-green-500 hover:font-bold"
+                onClick={() => setMenuOpen(false)}
+              >
+                Help
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
     </div>
   );
